@@ -24,6 +24,11 @@
 
 ---
 ### Задание 5*.
-
-
+##### Найдите фильмы, которые ни разу не брали в аренду
+> select f.title  from sakila.rental r 
+> right join sakila.inventory i on i.inventory_id = r.inventory_id  
+> right join sakila.film f  on f.film_id = i.film_id 
+> where  r.rental_id is null;
+> 
+> ![image](https://user-images.githubusercontent.com/122415129/235791852-d659c9ab-ebd8-4f9a-a87b-cf70e67213e7.png)
 ---
