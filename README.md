@@ -20,8 +20,12 @@
 > ![image](https://user-images.githubusercontent.com/122415129/235790673-85a402b1-7451-426d-9de5-ec24e6ac6f93.png)
 ---
 ### Задание 4*.
-
-
+##### Посчитайте количество продаж, выполненных каждым продавцом. Добавьте вычисляемую колонку «Премия». Если количество продаж превышает 8000, то значение в колонке будет «Да», иначе должно быть значение «Нет».
+> select t1.cp 'продажи', t1.staff_id 'продавец',
+> case when t1.cp > 8000 then 'да' else 'нет' end as 'премия'
+> from(select count(payment_id) cp, staff_id from sakila.payment p group by staff_id ) t1;
+> 
+> ![image](https://user-images.githubusercontent.com/122415129/235794431-b7853254-116e-456e-8ef4-ddfd0373c91e.png)
 ---
 ### Задание 5*.
 ##### Найдите фильмы, которые ни разу не брали в аренду
@@ -30,5 +34,5 @@
 > right join sakila.film f  on f.film_id = i.film_id 
 > where  r.rental_id is null;
 > 
-> ![image](https://user-images.githubusercontent.com/122415129/235791852-d659c9ab-ebd8-4f9a-a87b-cf70e67213e7.png)
+> ![image](https://user-images.githubusercontent.com/122415129/235794921-09dce4e1-4566-417d-bac8-abb071ea365c.png)
 ---
