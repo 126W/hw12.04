@@ -15,9 +15,10 @@
 ---
 ### Задание 3.
 ##### Получите информацию, за какой месяц была получена наибольшая сумма платежей, и добавьте информацию по количеству аренд за этот месяц.
-> select month (payment_date), count(payment_id), sum(amount) from payment group by month(payment_date) order by sum(amount) desc limit 1;
+> select date_format(payment_date, '%M-%Y'), count(payment_id), sum(amount)  from sakila.payment p  
+> group by date_format(payment_date,'%M-%Y') order by sum(amount)  desc limit 1;
 > 
-> ![image](https://user-images.githubusercontent.com/122415129/235790673-85a402b1-7451-426d-9de5-ec24e6ac6f93.png)
+> ![image](https://user-images.githubusercontent.com/122415129/236007972-df659aa3-2b3b-44ce-947f-c7744b439330.png)
 ---
 ### Задание 4.
 ##### Посчитайте количество продаж, выполненных каждым продавцом. Добавьте вычисляемую колонку «Премия». Если количество продаж превышает 8000, то значение в колонке будет «Да», иначе должно быть значение «Нет».
